@@ -1,0 +1,37 @@
+.menu {
+    overflow: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 99;
+}
+.quicklaunch {
+	position: fixed;
+	width: 10px;
+	height: 10px;
+	bottom: 7px;
+}
+.menubutton {
+	width: 200px;
+	text-align: left;
+}
+#menu {
+	left: 0px;
+	width: 200px;
+	height: 100px;
+	top: 25px;
+	bottom: 0px;
+	z-index: 98;
+	overflow: hidden;
+}
+#icon {
+	left: 0px;
+	top: 0px;
+	width: 50px;
+	height: 50px;
+	/*bottom: 0px;*/
+	z-index: 100;
+	overflow: hidden;
+}

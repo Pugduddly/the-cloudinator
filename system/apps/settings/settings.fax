@@ -1,0 +1,36 @@
+<div id="title_settings" class="title">System Settings</div>
+<script>
+$(function(){
+	$('#background-image').change(function(){
+		var d = document.getElementById('background-image');
+		var b = document.getElementById('body');
+		if(d.value == 'none'){
+			b.style.background = '#0097AA';
+		}else{
+			b.style.background = 'url(system/backgrounds/' + d.value + ') no-repeat center center fixed';
+		}
+	});
+});
+</script>
+<center>
+	<img src="system/apps/settings/settings.png"/>
+	<br>
+	<h1><b>Settings</b></h1>
+	<table class="blur" style="font-family: MSDOS">
+		<tr>
+			<td width="250">
+				Background image
+			</td>
+			<td> 
+				<select name="Choose a background image" id="background-image">
+					<option value="none">None</option>
+					<option value="Cool-purple-swirl-thingy.jpg">Cool Purple Swirly Thing</option>
+					<option value="Cat.png">Cat</option>
+					<option value="City.jpg">City</option>
+					<option value="Field.jpg">Field</option>
+					<option value="Forest.jpg">Forest</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+</center>

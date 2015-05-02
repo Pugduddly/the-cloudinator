@@ -1,0 +1,54 @@
+@font-face {
+    font-family: MSDOS;
+    font-size: 20px;
+    src: url(../fonts/clacon.ttf);
+    font-size: 20px;
+}
+.transparent {
+	background-image: url(../images/transparent-bgnd.png);
+	background: url(../images/transparent-bgnd.png);
+}
+.blur {
+	box-shadow:
+		0 0 0 1px hsl(0, 0%, 50%),
+		0 0 0 2px hsl(0, 0%, 60%),
+		0 0 0 3px hsl(0, 0%, 70%),
+		0 0 0 4px hsl(0, 0%, 80%),
+		0 0 0 5px hsl(0, 0%, 90%);
+}
+button {
+	font-family: MSDOS;
+	font-size: 20px;
+	color: #CDCE00;
+	background-image: url(../images/button.png);
+}
+.no-close .ui-dialog-titlebar-close {
+	display: none;
+}
+body {
+	background-image: url(../system/backgrounds/Cool-purple-swirl-thingy.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
+	background-color: #0097AA;
+	overflow: hidden;
+}
+.animate {
+	overflow-y: hidden;
+	/*max-height: 56px;*/
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .5s;
+	-webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	-moz-transition-property: all;
+	-moz-transition-duration: .5s;
+	-moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	-ms-transition-property: all;
+	-ms-transition-duration: .5s;
+	-ms-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+	transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.rotate360 {
+	-webkit-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+}
