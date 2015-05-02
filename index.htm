@@ -17,14 +17,18 @@
 		<div id="menu" class="menu transparent animate" style="height: 0px">
 			<img src="images/menu.png" id="icon" class="menu animate" onclick="toggleMenu()"/>
 			<button class="menubutton" onclick="openApp('settings')">Settings</button>
+			<button class="menubutton" onclick="openApp('audioPlayer')">Audio Player</button>
+			<button class="menubutton" onclick="openApp('videoPlayer')">Video Player</button>
 			<br>
 		</div>
 		<div id="taskbar" class="menu transparent animate">
 			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block"></span>
 			<span id="quicklaunch">
-				<img style="left: 12px" src="system/apps/settings/settings.png" class="quicklaunch" onclick="openApp('settings')" style="display: inline-block"/>
+				<img style="left: 12px;display: inline-block" title="Settings" src="system/apps/settings/settings.png" class="quicklaunch" onclick="openApp('settings')"/>
+				<img style="left: 24px;display: inline-block" title="Audio Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('audioPlayer')"/>
+				<img style="left: 36px;display: inline-block" title="Video Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('videoPlayer')"/>
 			</span>
-			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block"></span>
+			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block;position: fixed;right: 0px;"></span>
 			<span id="buttons"></span>
 		</div>
 	</body>

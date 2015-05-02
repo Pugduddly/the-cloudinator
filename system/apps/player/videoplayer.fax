@@ -1,0 +1,39 @@
+<div id="title_settings" class="title">System Settings</div>
+<script>
+$(function(){
+	$('#video-to-play').change(function(){
+		//videoPlayer.pause();
+		var song = document.getElementById('video-to-play');
+		var video = document.getElementById('the-video');
+        var source = document.getElementById('videoSource');
+        source.src = 'system/media/' + song.value + '';
+        video.load(); //call this to just preload the video without playing
+        //video.play(); //call this to play the song right away
+	});
+});
+</script>
+<center>
+	<img src="system/apps/player/player.png"/>
+	<br>
+	<h1><b>Video Player</b></h1>
+	<table class="blur" style="font-family: MSDOS">
+		<tr>
+			<td width="250">
+				Video to play
+			</td>
+			<td> 
+				<select name="Choose a song to play" id="video-to-play">
+					<option value="Parry Gripp - Smiley Cat!.mp4">Smiley Cat by Parry Gripp</option>
+					<option value="Scatman John - Scatman.mp4">Scatman by Scatman John</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<video id="the-video" controls>
+				<source id="videoSource" src="system/media/Parry Gripp - Smiley Cat!.mp4"></source>
+				Sorry, you need to update your browser to use the video player.
+			</video>
+			<br>
+		</tr>
+	</table>
+</center>

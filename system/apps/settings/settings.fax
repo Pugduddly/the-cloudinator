@@ -10,6 +10,7 @@ $(function(){
 			b.style.background = 'url(system/backgrounds/' + d.value + ') no-repeat center center fixed';
 		}
 	});
+	document.getElementById('version').innerHTML = 'You are using The Cloudinator version ' + cloudinatorVersion + '.';
 });
 </script>
 <center>
@@ -33,4 +34,6 @@ $(function(){
 			</td>
 		</tr>
 	</table>
+	
+	<h5 id="version"></h5>
 </center>
