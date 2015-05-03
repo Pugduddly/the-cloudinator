@@ -12,6 +12,6 @@ The Cloudinator is written entirely in HTML, CSS, and Javascript.
 * A computer
 
 ## The wiki ##
-The wiki is located [here](https://bitbucket.org/humphrey14/the-cloudinator/admin).
+The wiki is located [here](https://bitbucket.org/humphrey14/the-cloudinator/wiki).
 
 ###### Copyright (c) 2015 by Evan Carlson. The terms of the GNU GPL license apply to this code. ######
