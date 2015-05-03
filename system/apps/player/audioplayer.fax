@@ -33,7 +33,7 @@ $(function(){
 		</tr>
 		<tr>
 			<audio id="the-music" controls>
-				<source id="source" src="system/media/Evan Carlson - Bounce.mp3"></source>
+				<source id="source" src="system/media/Evan Carlson - Bounce.mp3" type="audio/mp3"></source>
 				Sorry, you need to update your browser to use the audio player.
 			</audio>
 			<br>

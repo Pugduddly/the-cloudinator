@@ -31,6 +31,14 @@ body {
 	background-color: #0097AA;
 	overflow: hidden;
 }
+.ContextMenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	cursor: default;
+	visibility: hidden;
+	z-index: 50000;
+}
 .animate {
 	overflow-y: hidden;
 	/*max-height: 56px;*/

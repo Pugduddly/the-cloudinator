@@ -23,14 +23,15 @@ $(function(){
 			</td>
 			<td> 
 				<select name="Choose a song to play" id="video-to-play">
-					<option value="Parry Gripp - Smiley Cat!.mp4">Smiley Cat by Parry Gripp</option>
-					<option value="Scatman John - Scatman.mp4">Scatman by Scatman John</option>
+					<option value="Smiley Cat!.mp4">Smiley Cat!</option>
+					<option value="I'm A Scatman.mp4">I'm A Scatman!</option>
+					<option value="Parry Gripp - I Am A Banana.mp4">I Am A Banana</option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<video id="the-video" controls>
-				<source id="videoSource" src="system/media/Parry Gripp - Smiley Cat!.mp4"></source>
+				<source id="videoSource" src="system/media/Smiley Cat!.mp4" type="video/mp4"></source>
 				Sorry, you need to update your browser to use the video player.
 			</video>
 			<br>
