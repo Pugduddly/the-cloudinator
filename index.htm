@@ -15,20 +15,44 @@
 	</head>
 	<body onclick="closeMenu();rcCloseContext();" onMouseDown="fMouseDown()" onload="osLoaded()" id="body" oncontextmenu="desktopRightClick(); return false;">
 		<div id="apps"></div>
-		<div id="notifications"><div id="alert_text"></div><div id="error_text"></div></div>
-		<div id="menu" class="menu transparent animate" style="height: 0px">
+		<div id="notifications">
+			<div id="alert" title="ALERT" bgcolor="#53ff00" style="display: none">
+				<br><br>
+				<div class="ui-widget">
+					<div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;">
+						<p>
+							<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+							<strong>Alert: </strong><span id="alert_text"></span>
+						</p>
+					</div>
+				</div>
+			</div><br>
+			<div id="error" title="ERROR" bgcolor="#53ff00" style="display: none">
+				<br><br>
+				<div class="ui-widget">
+					<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+						<p>
+							<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+							<strong>Error: </strong><span id="error_text"></span>
+						</p>
+					</div>
+				</div>
+			</div><br>
+		</div>
+		<div id="menu" class="menu transparent animate" style="height: 0px; z-index: 2000">
 			<img src="images/menu.png" id="icon" class="menu animate" onclick="toggleMenu()"/>
 			<button class="menubutton" onclick="openApp('settings')">Settings</button>
 			<button class="menubutton" onclick="openApp('audioPlayer')">Audio Player</button>
 			<button class="menubutton" onclick="openApp('videoPlayer')">Video Player</button>
 			<br>
 		</div>
-		<div id="taskbar" class="menu transparent animate">
+		<div id="taskbar" class="menu transparent animate" style="z-index: 2000">
 			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block"></span>
 			<span id="quicklaunch">
 				<img style="left: 12px;display: inline-block" title="Settings" src="system/apps/settings/settings.png" class="quicklaunch" onclick="openApp('settings')"/>
 				<img style="left: 24px;display: inline-block" title="Audio Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('audioPlayer')"/>
 				<img style="left: 36px;display: inline-block" title="Video Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('videoPlayer')"/>
+				<img style="left: 48px;display: inline-block" title="Run Program" src="images/run.png" class="quicklaunch" onclick="openDialog('run')"/>
 			</span>
 			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block;position: fixed;right: 0px;"></span>
 			<span id="buttons"></span>

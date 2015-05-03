@@ -1,0 +1,13 @@
+<script>
+var programsRun = 0;
+function runTheProgram(){
+	loadApp(document.getElementById('programToRun').value, 'runProgram' + programsRun, document.getElementById('programToRun').value);
+	openApp('runProgram' + programsRun);
+	programsRun = programsRun + 1;
+	closeApp('run');
+}
+</script>
+<center>
+	<h1>Run</h1>
+	<input type="text" id="programToRun"/><button onclick="runTheProgram()">Run</button>
+</center>

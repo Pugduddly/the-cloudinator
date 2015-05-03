@@ -80,7 +80,7 @@ function drawContextMenu() {
 }
 
 function desktopRightClick() {
-	vContextMenu = Array('Toggle Menu', 'toggleMenu()', 'Settings', 'openApp(\'settings\')', '-HR-', 'About', 'openApp(\'about\')');
+	vContextMenu = Array('Toggle Menu', 'toggleMenu()', 'Settings', 'openApp(\'settings\')', 'Run', 'openDialog(\'run\')', '-HR-', 'About', 'openApp(\'about\')');
 	rcContextMenu();
 }
 

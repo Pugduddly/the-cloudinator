@@ -60,3 +60,9 @@ body {
 	-moz-transform: rotate(360deg);
 	-o-transform: rotate(360deg);
 }
+.showOnHover {
+	opacity: 0;
+}
+.showOnHover:hover {
+	opacity: 1;
+}

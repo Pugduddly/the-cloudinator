@@ -25,7 +25,6 @@ $(function(){
 				<select name="Choose a song to play" id="music-to-play">
 					<option value="Evan Carlson - Bounce.mp3">Bounce by Evan Carlson</option>
 					<option value="Evan Carlson - Wiggle.mp3">Wiggle by Evan Carlson</option>
-					<option value="Evan Carlson - Repeat.mp3">Repeat by Evan Carlson</option>
 					<option value="Evan Carlson - Up.mp3">Up by Evan Carlson</option>
 					<option value="Scatman John - Scatman.mp3">Scatman by Scatman John</option>
 				</select>

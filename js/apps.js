@@ -9,33 +9,39 @@
  * 7.  setTitle: sets the title of the window specified.
  * 8.  getTitle: gets the title of the window specified.
  * 9.  openApp: open the app specified.
- * 10. killApp: kill the app specified (return it to its pre-opened state).
- * 11. closeApp: close the app specified.
- * 12. deleteApp: kill the app specified and then wipe it out (delete all it's contents, useful for malware protection).
+ * 10. openDialog: open the app specified in a dialog format..
+ * 11. killApp: kill the app specified (return it to its pre-opened state).
+ * 12. closeApp: close the app specified.
+ * 13. deleteApp: kill the app specified and then wipe it out (delete all it's contents, useful for malware protection).
  */
 function dalert(text){
-	document.getElementById("alert_text").innerHTML = text;
-	$( "#alert" ).dialog({buttons: [{text: "Ok",click: function() {$( this ).dialog( "close" );}}]});
+	$('#alert_text')[0].innerHTML = text;
+	$('#alert').dialog({buttons: [{text: 'Ok',click: function() {$( this ).dialog('close');}}]});
 }
 function derror(text){
-	document.getElementById("alert_text").innerHTML = text;
-	$( "#error" ).dialog({buttons: [{text: "Ok",click: function() {$( this ).dialog( "close" );}}]});
+	$('#error_text').innerHTML = text;
+	$('#error').dialog({buttons: [{text: 'Ok',click: function() {$( this ).dialog('close');}}]});
 }	
 function loadApp(pathToApp, appId, appTitle){
 	var appsElement = document.getElementById('apps');
 	appsElement.innerHTML = appsElement.innerHTML + '<div class="application" oncontextmenu="windowRightClick(this); return false" title="' + appTitle + '" id="' + appId + '"></div>';
 	$.get(pathToApp, function(data) {
 		$('#' + appId).html(data);
+		$('#' + appId).bind('dialogclose', function(event) {
+			$('#menu')[0].classList.remove('showOnHover');
+		});
 	});
 }
 function getAppId(e){
 	return $(e).parents('.ui-dialog').find('.application')[0].id;
 }
 function maximizeWindow(theWindow){
-	$(theWindow).dialog('option', {width: document.body.clientWidth,height: document.body.clientHeight});
+	$('#menu')[0].classList.add('showOnHover');
+	$(theWindow).dialog('option', {width: document.body.clientWidth, height: document.body.clientHeight});
 }
 function restoreWindow(theWindow){
-	$(theWindow).dialog('option', {width: 400,height: 400});
+	$('#menu')[0].classList.remove('showOnHover');
+	$(theWindow).dialog('option', {width: 400, height: 400});
 }
 function setTitle(appId, appTitle){
 	$('#' + appId).dialog('option', 'title', appTitle);
@@ -49,10 +55,18 @@ function openApp(appId){
 		height: 400
 	});
 }
+function openDialog(dialogId){
+	$('#' + dialogId).dialog({
+		width: 400,
+		height: 200
+	});
+}
 function killApp(appId){
+	$('#menu')[0].classList.remove('showOnHover');
 	$('#' + appId).dialog('destroy');
 }
 function closeApp(appId){
+	$('#menu')[0].classList.remove('showOnHover');
 	$('#' + appId).dialog('close');
 }
 function deleteApp(appId){
