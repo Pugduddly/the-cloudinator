@@ -30,6 +30,8 @@ body {
 	-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
 	background-color: #0097AA;
 	overflow: hidden;
+	font-size: 62.5%;
+	margin: 0;
 }
 .ContextMenu {
 	position: absolute;
@@ -38,6 +40,15 @@ body {
 	cursor: default;
 	visibility: hidden;
 	z-index: 50000;
+}
+a {
+	cursor: hand;
+	color: blue !important;
+	text-decoration: none;
+}
+a:hover {
+	color: blue;
+	text-decoration: underline;
 }
 .animate {
 	overflow-y: hidden;

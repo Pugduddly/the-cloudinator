@@ -2,6 +2,7 @@
 <script>
 $(function(){
 	document.getElementById('aboutVersion').innerHTML = cloudinatorVersion;
+	document.getElementById('aboutVersion2').innerHTML = cloudscapeVersion;
 });
 </script>
 <center>
@@ -9,7 +10,7 @@ $(function(){
 	<br>
 	<h1><b>About The Cloudinator</b></h1>
 	
-	<h5>You are using version <span id="aboutVersion"></span> of The Cloudinator.</h5>
-	<h5>The Cloudinator is developed and maintaned by <a href="https://bitbucket.org/humphrey14/">Evan Carlson</a>.</h5>
-	<h5>The Cloudinator uses <a href="http://jquery.com/">JQuery</a>, <a href="http://jqueryui.com/">JQuery UI</a>, and many other things to make it work.</h5>
+	<h3>The Cloudinator version <span id="aboutVersion"></span>, CloudScape UI version <span id="aboutVersion2"></span></h3>
+	<h3>The Cloudinator is developed and maintaned by Evan Carlson.</h3>
+	<h3>The Cloudinator uses <a data-location="http://jquery.com/">JQuery</a>, <a data-location="http://jqueryui.com/">JQuery UI</a>, and many other things to make it work.</h3>
 </center>

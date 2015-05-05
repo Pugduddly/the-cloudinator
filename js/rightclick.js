@@ -80,12 +80,37 @@ function drawContextMenu() {
 }
 
 function desktopRightClick() {
-	vContextMenu = Array('Toggle Menu', 'toggleMenu()', 'Settings', 'openApp(\'settings\')', 'Run', 'openDialog(\'run\')', '-HR-', 'About', 'openApp(\'about\')');
+	vContextMenu = Array('Toggle Fullscreen', 'toggleFullScreen()', 'Toggle Menu', 'toggleMenu()', 'Settings', 'openApp(\'settings\')', 'Run', 'openDialog(\'run\')', '-HR-', 'About', 'openApp(\'about\')');
+	rcContextMenu();
+}
+
+function menuButtonRightClick() {
+	vContextMenu = Array('<b>Toggle Menu</b>', 'toggleMenu()', 'Toggle Fullscreen', 'toggleFullScreen()', 'Settings', 'openApp(\'settings\')', 'Run', 'openDialog(\'run\')', '-HR-', 'About', 'openApp(\'about\')');
+	rcContextMenu();
+}
+
+function menuAppButtonRightClick(e) {
+	vContextMenu = Array('<b>Open Application</b>', e.onclick + 'onclick()', '-HR-', 'About', 'openApp(\'about\')');
+	rcContextMenu();
+}
+
+function quicklaunchButtonRightClick(e) {
+	vContextMenu = Array('<b>Open Application</b>', e.onclick + 'onclick()', '-HR-', 'About', 'openApp(\'about\')');
 	rcContextMenu();
 }
 
 function windowRightClick(e) {
 	vContextMenu = Array('Maximize', 'maximizeWindow(\'#' + getAppId(e) + '\')', 'Restore', 'restoreWindow(\'#' + getAppId(e) + '\')', 'Close', 'closeApp(\'' + getAppId(e) + '\')', '-HR-', 'About', 'openApp(\'about\')');
+	rcContextMenu();
+}
+
+function appCloseRightClick(e) {
+	vContextMenu = Array('<b>Close</b>', 'closeApp(\'' + getAppId(e) + '\')', 'Maximize', 'maximizeWindow(\'#' + getAppId(e) + '\')', 'Restore', 'restoreWindow(\'#' + getAppId(e) + '\')', '-HR-', 'About', 'openApp(\'about\')');
+	rcContextMenu();
+}
+
+function linkRightClick(e) {
+	vContextMenu = Array('<b>Open link</b>', 'openApp(\'webBrowser\');browserGo(\'' + $(e).data('location') + '\');', '-HR-', 'About', 'openApp(\'about\')');
 	rcContextMenu();
 }
 

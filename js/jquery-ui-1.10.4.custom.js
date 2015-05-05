@@ -8863,7 +8863,8 @@ $.widget( "ui.dialog", {
 		autoOpen: true,
 		buttons: [],
 		closeOnEscape: true,
-		closeText: "close",
+		/*closeText: "close",*/
+		closeText: "",
 		dialogClass: "",
 		draggable: true,
 		hide: null,

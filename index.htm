@@ -2,35 +2,37 @@
 	<head>
 		<title>The Cloudinator: A Cloud Operating System In Your Web Browser!</title>
 		<link rel="shortcut icon" href="images/favicon.png">
-		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.css">
 		<script src="js/jquery-1.10.2.js"></script>
 		<script src="js/jquery-ui-1.10.4.custom.js"></script>
 		<script src="js/menu.js"></script>
 		<script src="js/apps.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/rightclick.js"></script>
+		<script src="js/screenfull-2.0.0.min.js"></script>
+		<script src="js/cookie.js"></script>
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/menu.css">
 		<link rel="stylesheet" href="css/apps.css">
+		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.css">
 	</head>
-	<body onclick="closeMenu();rcCloseContext();" onMouseDown="fMouseDown()" onload="osLoaded()" id="body" oncontextmenu="desktopRightClick(); return false;">
+	<body onclick="closeMenu();rcCloseContext()" onMouseDown="fMouseDown()" onload="osLoaded()" id="body" oncontextmenu="desktopRightClick(); return false;">
 		<div id="apps"></div>
 		<div id="notifications">
-			<div id="alert" title="ALERT" bgcolor="#53ff00" style="display: none">
+			<div id="alert" bgcolor="#53ff00" style="display: none" class="application">
 				<br><br>
-				<div class="ui-widget">
-					<div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;">
-						<p>
+				<div class="ui-widget" id="alert_contents_wrapper">
+					<div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;" id="alert_contents">
+						<p class="application">
 							<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
 							<strong>Alert: </strong><span id="alert_text"></span>
 						</p>
 					</div>
 				</div>
 			</div><br>
-			<div id="error" title="ERROR" bgcolor="#53ff00" style="display: none">
+			<div id="error" bgcolor="#53ff00" style="display: none" class="application">
 				<br><br>
-				<div class="ui-widget">
-					<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
+				<div class="ui-widget" id="error_contents_wrapper">
+					<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;" id="error_contents">
 						<p>
 							<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
 							<strong>Error: </strong><span id="error_text"></span>
@@ -44,6 +46,10 @@
 			<button class="menubutton" onclick="openApp('settings')">Settings</button>
 			<button class="menubutton" onclick="openApp('audioPlayer')">Audio Player</button>
 			<button class="menubutton" onclick="openApp('videoPlayer')">Video Player</button>
+			<button class="menubutton" onclick="openApp('webBrowser')">Web Browser</button>
+			<script>
+				$('.menubutton').button();
+			</script>
 			<br>
 		</div>
 		<div id="taskbar" class="menu transparent animate" style="z-index: 2000">
@@ -53,6 +59,7 @@
 				<img style="left: 24px;display: inline-block" title="Audio Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('audioPlayer')"/>
 				<img style="left: 36px;display: inline-block" title="Video Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('videoPlayer')"/>
 				<img style="left: 48px;display: inline-block" title="Run Program" src="images/run.png" class="quicklaunch" onclick="openDialog('run')"/>
+				<img style="left: 60px;display: inline-block" title="Web Browser" src="system/apps/web browser/browser.png" class="quicklaunch" onclick="openApp('webBrowser')"/>
 			</span>
 			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block;position: fixed;right: 0px;"></span>
 			<span id="buttons"></span>

@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title id="title"></title>
+		<link rel="shortcut icon" href="../../images/favicon.png">
+		<script src="../../js/jquery-1.10.2.js"></script>
+		<script src="../../js/jquery-ui-1.10.4.custom.js"></script>
+		<link href="../../css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+		<style type="text/css">
+			html, body { font-family: arial, sans-serif;font-size: 13px;height: 100%;margin: 0 0;background-color: #fff;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; }
+			#content { padding: 10px; }
+			#header { font-weight: bold;font-size: 14px;background-color: #e5e5e5;padding: 10px; }
+			#details { font-weight: bold;padding: 10px 0; }
+			.picker.modal-dialog-bg, .picker.modal-dialog.picker-dialog { z-index: 2000; }
+			.picker.modal-dialog.picker-dialog { left: 7px;top: 0px; }
+			.picker.modal-dialog-bg { opacity: 0.5;width: 1016px;position: absolute;top: 0;left: 0;background-color: #fff; }
+			.picker.modal-dialog-title { height: 0;margin: 0; }
+			.picker.modal-dialog-title-text, .picker.modal-dialog-buttons { display: none; }
+			.picker.modal-dialog-title-close { display: inline; }
+			.picker.modal-dialog { position: absolute;top: 0;left: 0;background-color: #fff;border: 1px solid #acacac;width: auto;padding: 0;z-index: 1001;overflow: auto;-moz-box-shadow: rgba(0,0,0,.2) 0 4px 16px;-webkit-box-shadow: rgba(0,0,0,.2) 0 4px 16px;box-shadow: rgba(0,0,0,.2) 0 4px 16px;-webkit-transition: top .5s ease-in-out;-moz-transition: top .5s ease-in-out;-o-transition: top .5s ease-in-out;transition: top .5s ease-in-out; }
+			.picker.modal-dialog-content { width: 1000px;height: 350px; }
+			.picker-frame { width: 100%;height: 100%;border: 0;overflow: hidden; }
+			/*.ui-widget-shadow { z-index: 3000; }*/
+			div, span { margin: 0;padding: 0;border: 0;font-size: 100%;background: transparent;display: block; }
+		</style>
+		<script type="text/javascript">
+			function getCookie(name) {
+				name = name + '=';
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1);
+					if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+				}
+				return '';
+			}
+			function parseArgs(){
+				var url = window.location.href.split('?')[1].split('&');
+				var json = {};
+				for(var i = 0;i < url.length;i+=1){
+					url[i] = url[i].split('=');
+				}
+				for(var i = 0;i < url.length;i+=1){
+					json[decodeURIComponent(url[i][0])] = decodeURIComponent(url[i][1]);
+				}
+				return json;
+			}
+			function init() {
+				$('button').button();
+				$(document).tooltip();
+				var backgroundCookie = getCookie('background');
+				if(backgroundCookie != ''){
+					document.getElementById('body').style.background = 'url(../../system/backgrounds/' + backgroundCookie.split(' ')[0].split('/')[2].split(')')[0] + ') no-repeat repeat center fixed';
+				}
+				var query = parseArgs();
+				document.getElementById('title').innerHTML = query.title;
+				document.getElementById('header').innerHTML = query.header;
+				document.getElementById('information').innerHTML = query.details;
+			}
+			function dispose() {
+			}
+		</script>
+	</head>
+	<body onload="init()" onunload="dispose()" dir="ltr" id="body">
+		<div class="ui-widget-overlay"></div>
+		<div class="ui-widget-shadow ui-corner-all" style="width: 1010px; height: 360px; position: absolute; left: 0px; top: 0px;"></div>
+		<div class="ui-overlay">
+			<div class="picker modal-dialog-bg" aria-hidden="true"></div>
+			<div class="picker modal-dialog picker-dialog" tabindex="0" role="dialog" aria-labelledby=":3" style="left: 7px; top: 7px;">
+				<div class="picker modal-dialog-title modal-dialog-title-draggable">
+					<span class="picker modal-dialog-title-text" id=":3" role="heading">Error</span>
+					<button class="picker modal-dialog-title-close" title="close" style="left: 949" role="button" tabindex="0" aria-label="Close" onclick="window.location = '../../'"><span class="ui-icon ui-icon-circle-close"></span></button>
+				</div>
+				<div class="picker modal-dialog-content" style="width: 1000px; height: 350px;">
+					<div class="picker-frame">
+						<div id="header">
+						</div>
+						<div id="content">
+							<div id="details">An error occurred and The Cloudinator has been shut down to protect The Cloudinator.<br>Details:</div>
+							<div id="information"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

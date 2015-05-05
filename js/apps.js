@@ -15,14 +15,16 @@
  * 13. deleteApp: kill the app specified and then wipe it out (delete all it's contents, useful for malware protection).
  */
 function dalert(text){
-	$('#alert_text')[0].innerHTML = text;
+	//$('#alert_text')[0].innerHTML = text;
+	document.getElementById('alert_text').innerHTML = text;
 	$('#alert').dialog({buttons: [{text: 'Ok',click: function() {$( this ).dialog('close');}}]});
 }
 function derror(text){
-	$('#error_text').innerHTML = text;
+	//$('#error_text').innerHTML = text;
+	document.getElementById('error_text').innerHTML = text;
 	$('#error').dialog({buttons: [{text: 'Ok',click: function() {$( this ).dialog('close');}}]});
 }	
-function loadApp(pathToApp, appId, appTitle){
+function loadApp(pathToApp, appId, appTitle, callback){
 	var appsElement = document.getElementById('apps');
 	appsElement.innerHTML = appsElement.innerHTML + '<div class="application" oncontextmenu="windowRightClick(this); return false" title="' + appTitle + '" id="' + appId + '"></div>';
 	$.get(pathToApp, function(data) {
@@ -30,6 +32,9 @@ function loadApp(pathToApp, appId, appTitle){
 		$('#' + appId).bind('dialogclose', function(event) {
 			$('#menu')[0].classList.remove('showOnHover');
 		});
+		if(callback != undefined && callback != null){
+			callback();
+		}
 	});
 }
 function getAppId(e){

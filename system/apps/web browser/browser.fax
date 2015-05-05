@@ -1,0 +1,43 @@
+<div id="title_webBrowser" class="title">Web Browser</div>
+<script>
+$('#goButton').button();
+$('#homeButton').button();
+$('#videoButton').button();
+$('#imageButton').button();
+var widthOffset = 30;
+var heightOffset = 80;
+window.iFrameChanges = -1; //will get incremented to 0 on first page load
+$('#webBrowser').bind('dialogresize', function(event, ui) {
+      document.getElementById('webPage').style.width = ui.size.width - widthOffset;
+      document.getElementById('webPage').style.height = ui.size.height - heightOffset;
+});
+function browserGo(location) {
+	if(!location){
+		location = document.getElementById('url').value;
+	}
+	if (location.indexOf('http://') == -1 && location.indexOf('https://') == -1) {
+		location = 'http://' + location;
+	}
+	document.getElementById('webPage').src = location;
+	document.getElementById('url').value = location;
+	document.getElementById('loading').style.display = 'block';
+	document.getElementById('webPage').style.display = 'none';
+}
+function iframeContentUnload() {
+	document.getElementById('loading').style.display = 'block';
+	document.getElementById('webPage').style.display = 'none';
+}
+function iframeContentLoaded() {
+	document.getElementById('loading').style.display = 'none';
+	document.getElementById('webPage').style.display = 'block';
+}
+</script>
+<center id="webBrowserContent">
+	<button align="left" id="videoButton" onclick="browserGo('www.bing.com/videos')" title="Videos"><span class="ui-icon ui-icon-video"></span></button>
+	<button align="left" id="imageButton" onclick="browserGo('www.bing.com/images')" title="Images"><span class="ui-icon ui-icon-image"></span></button>
+	<button align="left" id="homeButton" onclick="browserGo('www.bing.com')" title="Home"><span class="ui-icon ui-icon-home"></span></button>
+	<input type="text" id="url" value="http://www.bing.com/"/>
+	<button id="goButton" onclick="browserGo()" title="Go"><span class="ui-icon ui-icon-circle-check"></span></button><br>
+	<img src="images/loading.gif" style="display: none" id="loading" title="Loading..."/>
+	<iframe width=400 height=400 onload="iframeContentLoaded()" onunload="iframeContentUnload()" src="http://www.bing.com/" id="webPage"></iframe>
+</center>
