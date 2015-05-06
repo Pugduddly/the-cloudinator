@@ -1,5 +1,5 @@
-var cloudinatorVersion = 0.05;
-var cloudscapeVersion = 0.04;
+var cloudinatorVersion = 0.06;
+var cloudscapeVersion = 0.05;
 
 window.onerror = function(msg, url, line) {
    error('An error occurred', 'An error occurred', '%20%20%20%20' + msg + '<br>%20%20%20%20%20%20%20%20at ' + url + '<br>%20%20%20%20%20%20%20%20on line ' + line + '<br>');
@@ -42,6 +42,7 @@ function osLoaded() {
 	// Get preferences from cookies stored in browser
 	var backgroundCookie = getCookie('background');
 	var menubuttonCookie = getCookie('menubutton');
+	var quicklaunchCookie = getCookie('quicklaunch');
 	if(backgroundCookie != ''){
 		document.getElementById('body').style.background = backgroundCookie;
 	}
@@ -53,16 +54,33 @@ function osLoaded() {
 		}
 		document.getElementById('icon').src = menubuttonCookie;
 	}
+	if(quicklaunchCookie != ''){
+		var b = document.getElementById('quickbar');
+		var e = document.getElementById('menu');
+		if(quicklaunchCookie == '1'){
+			b.style.background = '';
+			b.classList.add('transparent');
+			e.classList.remove('vista');
+		}else if(quicklaunchCookie == '2'){
+			b.classList.remove('transparent');
+			e.classList.add('vista');
+			b.style.background = 'url(images/vista-bar.png)';
+		}
+	}
 	// Load built-in applications
 	loadApp('system/apps/settings/settings.fax', 'settings', 'Settings', function(){
 		// Adjust settings to fit cookies
 		var backgroundCookie = getCookie('background');
 		var menubuttonCookie = getCookie('menubutton');
+		var quicklaunchCookie = getCookie('quicklaunch');
 		if(backgroundCookie != ''){
 			document.getElementById('background' + backgroundCookie.split(' ')[0].split('/')[2].split(')')[0]).selected = 'selected';
 		}
 		if(menubuttonCookie != ''){
 			$('#menuicon' + menubuttonCookie)[0].selected = 'selected';
+		}
+		if(quicklaunchCookie != ''){
+			$('#quickicon' + quicklaunchCookie)[0].selected = 'selected';
 		}
 	});
 	loadApp('system/apps/player/audioplayer.fax', 'audioPlayer', 'Audio Player');

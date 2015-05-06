@@ -50,6 +50,14 @@ a:hover {
 	color: blue;
 	text-decoration: underline;
 }
+.menu.vista {
+	background: -webkit-linear-gradient(#5C5C5C, #000000);
+	background: -o-linear-gradient(#5C5C5C, #000000);
+	background: -moz-linear-gradient(#5C5C5C, #000000);
+	background: linear-gradient(#5C5C5C, #000000);
+	border: 0px solid #A1A1A1;
+	border-radius: 5px;
+}
 .animate {
 	overflow-y: hidden;
 	/*max-height: 56px;*/
