@@ -58,6 +58,14 @@ a:hover {
 	border: 0px solid #A1A1A1;
 	border-radius: 5px;
 }
+.menu.xp {
+	background: -webkit-linear-gradient(#438CE6, #0D5BC7, #438CE6);
+	background: -o-linear-gradient(#438CE6, #0D5BC7, #438CE6);
+	background: -moz-linear-gradient(#438CE6, #0D5BC7, #438CE6);
+	background: linear-gradient(#438CE6, #0D5BC7, #438CE6);
+	border: 0px solid #1854C2;
+	border-radius: 5px;
+}
 .animate {
 	overflow-y: hidden;
 	/*max-height: 56px;*/
