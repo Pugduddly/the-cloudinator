@@ -59,12 +59,27 @@ function osLoaded() {
 		var e = document.getElementById('menu');
 		if(quicklaunchCookie == '1'){
 			b.style.background = '';
+			b.classList.remove('transparent');
 			b.classList.add('transparent');
 			e.classList.remove('vista');
+			e.classList.remove('xp');
+			e.classList.add('transparent');
 		}else if(quicklaunchCookie == '2'){
 			b.classList.remove('transparent');
+			b.classList.remove('xp');
+			e.classList.remove('xp');
+			e.classList.remove('transparent');
+			e.classList.remove('vista');
 			e.classList.add('vista');
 			b.style.background = 'url(images/vista-bar.png)';
+		}else if(quicklaunchCookie == '3'){
+			b.classList.remove('transparent');
+			b.classList.remove('vista');
+			e.classList.remove('transparent');
+			e.classList.remove('vista');
+			e.classList.add('xp');
+			b.style.background = 'url(images/bluebar.png)';
+			setCookie('quicklaunch', '3');
 		}
 	}
 	// Load built-in applications
