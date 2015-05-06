@@ -24,7 +24,7 @@ $(function(){
 			<td> 
 				<select name="Choose a song to play" id="video-to-play">
 					<option value="Smiley Cat!.mp4">Smiley Cat!</option>
-					<option value="I'm A Scatman.mp4">I'm A Scatman!</option>
+					<!--<option value="I'm A Scatman.mp4">I'm A Scatman!</option>-->
 					<option value="Parry Gripp - I Am A Banana.mp4">I Am A Banana</option>
 				</select>
 			</td>

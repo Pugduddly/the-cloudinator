@@ -56,7 +56,6 @@ $(function(){
 			b.style.background = 'url(images/bluebar.png)';
 			setCookie('quicklaunch', '3');
 		}
-		console.log(e.classList);
 	});
 	document.getElementById('version').innerHTML = 'You are using The Cloudinator version ' + cloudinatorVersion + '.';
 });
