@@ -3,9 +3,10 @@ var isContextMenu = false;
 var CurX;
 var CurY;
 
-function fMouseDown() {
-	CurX = window.event.clientX;
-	CurY = window.event.clientY;
+function fMouseDown(event) {
+	if(window.event) event = window.event;
+	CurX = event.clientX;
+	CurY = event.clientY;
 }
 
 function rcContextMenu() {

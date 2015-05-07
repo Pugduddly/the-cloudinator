@@ -16,7 +16,7 @@
 		<link rel="stylesheet" href="css/apps.css">
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.css">
 	</head>
-	<body onclick="closeMenu();rcCloseContext()" onMouseDown="fMouseDown()" onload="osLoaded()" id="body" oncontextmenu="desktopRightClick(); return false;">
+	<body onclick="closeMenu();rcCloseContext()" onmousedown="fMouseDown(this); return false" onload="osLoaded()" id="body" oncontextmenu="desktopRightClick(); return false;">
 		<div id="apps"></div>
 		<div id="notifications">
 			<div id="alert" bgcolor="#53ff00" style="display: none" class="application">

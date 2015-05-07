@@ -1,11 +1,26 @@
-var cloudinatorVersion = 0.06;
+var cloudinatorVersion = 0.07;
 var cloudscapeVersion = 0.05;
 
 window.onerror = function(msg, url, line) {
-   error('An error occurred', 'An error occurred', '%20%20%20%20' + msg + '<br>%20%20%20%20%20%20%20%20at ' + url + '<br>%20%20%20%20%20%20%20%20on line ' + line + '<br>');
+   error('An error occurred', 'An error occurred', '&nbsp;&nbsp;&nbsp;&nbsp;' + msg + '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at ' + url + '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on line ' + line + '<br>');
 }
 
 function osLoaded() {
+	// Check browser type (The Cloudinator only supports Google Chrome)
+	var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	var isFirefox = typeof InstallTrigger !== 'undefined';
+	var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+	var isChrome = !!window.chrome && !isOpera;
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
+	var browserString = '';
+	if(isOpera) browserString = 'Opera';
+	if(isFirefox) browserString = 'Mozilla Firefox';
+	if(isSafari) browserString = 'Safari';
+	if(isIE) browserString = 'Internet Explorer';
+	if(isChrome) browserString = 'Google Chrome';
+	if(!isChrome) {
+		error('Incompatible Browser Error', 'Incompatible Browser Error', 'Sorry, the web browser ' + browserString + ' is not supported.<br>To use The Cloudinator, please upgrade to <a target="_blank" href="http://chrome.google.com">Google Chrome</a>.');
+	}
 	// Initialize tooltips
 	$(document).tooltip();
 	// Setup rightclick events
@@ -106,7 +121,7 @@ function osLoaded() {
 }
 
 function error(title, header, message){
-	window.location = 'system/bin/error.htm?title=' + title + '&header=' + header + '&details=' + message;
+	window.location = 'system/bin/error.htm?title=' + encodeURIComponent(title) + '&header=' + encodeURIComponent(header) + '&details=' + encodeURIComponent(message);
 }
 
 function toggleFullScreen() {
