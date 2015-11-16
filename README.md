@@ -7,9 +7,8 @@ The Cloudinator is an open-source cloud-based computer operating system that run
 The Cloudinator is written entirely in HTML, CSS, and Javascript.
 
 ## Requirements ##
-* A web browser that supports HTML5 and CSS3
-* A web server program
 * [Google Chrome](http://www.google.com/chrome/)
+* A web server program
 * A computer
 
 ## The wiki ##
