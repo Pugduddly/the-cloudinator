@@ -1,5 +1,5 @@
-var cloudinatorVersion = 0.07;
-var cloudscapeVersion = 0.05;
+var cloudinatorVersion = "1.0";
+var cloudscapeVersion = "0.8";
 
 window.onerror = function(msg, url, line) {
    error('An error occurred', 'An error occurred', '&nbsp;&nbsp;&nbsp;&nbsp;' + msg + '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at ' + url + '<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on line ' + line + '<br>');
@@ -7,6 +7,7 @@ window.onerror = function(msg, url, line) {
 
 function osLoaded() {
 	// Check browser type (The Cloudinator only supports Google Chrome)
+	var isWebkit = (window.webkitURL != null);
 	var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 	var isFirefox = typeof InstallTrigger !== 'undefined';
 	var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
@@ -14,45 +15,51 @@ function osLoaded() {
 	var isIE = /*@cc_on!@*/false || !!document.documentMode;
 	var browserString = '';
 	if(isOpera) browserString = 'Opera';
-	if(isFirefox) browserString = 'Mozilla Firefox';
-	if(isSafari) browserString = 'Safari';
-	if(isIE) browserString = 'Internet Explorer';
-	if(isChrome) browserString = 'Google Chrome';
+	else if(isFirefox) browserString = 'Mozilla Firefox';
+	else if(isSafari) browserString = 'Safari';
+	else if(isIE) browserString = 'Internet Explorer';
+	else if(isChrome) browserString = 'Google Chrome';
+	else browserString = 'you are using';
 	if(!isChrome) {
 		error('Incompatible Browser Error', 'Incompatible Browser Error', 'Sorry, the web browser ' + browserString + ' is not supported.<br>To use The Cloudinator, please upgrade to <a target="_blank" href="http://chrome.google.com">Google Chrome</a>.');
 	}
+	//if(!isChrome) $(document).mousedown(fMouseDown);
 	// Initialize tooltips
 	$(document).tooltip();
 	// Setup rightclick events
-	$('#body').on('contextmenu', '.ui-dialog', function(e){
+	$('body').on('contextmenu', '.ui-dialog', function(e){
 		e.stopPropagation();
 		windowRightClick(e.toElement);
 	});
-	$('#body').on('contextmenu', '#menu', function(e){
+	$('body').on('contextmenu', '#menu', function(e){
 		e.stopPropagation();
 		menuButtonRightClick();
 	});
-	$('#body').on('contextmenu', '.menubutton', function(e){
+	$('body').on('contextmenu', '.menubutton', function(e){
 		e.stopPropagation();
 		menuAppButtonRightClick($(e.target).parents('.ui-button')[0]);
 	});
-	$('#body').on('contextmenu', '.quicklaunch', function(e){
+	$('body').on('contextmenu', '.quicklaunch', function(e){
 		e.stopPropagation();
 		quicklaunchButtonRightClick(e.target);
 	});
-	$('#body').on('contextmenu', '.ui-dialog-titlebar-close', function(e){
+	$('body').on('contextmenu', '.ui-dialog-titlebar-close', function(e){
 		e.stopPropagation();
 		appCloseRightClick(e.toElement);
 	});
 	// Setup link click events
-	$('#body').on('contextmenu', 'a', function(e){
+	$('body').on('contextmenu', 'a', function(e){
 		e.stopPropagation();
 		linkRightClick(e.toElement);
 	});
-	$('#body').on('click', 'a', function(e){
+	$('body').on('click', 'a', function(e){
 		e.preventDefault();
 		openApp('webBrowser');
 		browserGo($(e.toElement).data('location'));
+	});
+	$('body').on('click', 'select', function(e){
+		e.preventDefault();
+		selectMenu(e.toElement);
 	});
 	// Get preferences from cookies stored in browser
 	var backgroundCookie = getCookie('background');

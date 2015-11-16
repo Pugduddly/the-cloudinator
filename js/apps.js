@@ -26,9 +26,11 @@ function derror(text){
 }	
 function loadApp(pathToApp, appId, appTitle, callback){
 	var appsElement = document.getElementById('apps');
-	appsElement.innerHTML = appsElement.innerHTML + '<div class="application" oncontextmenu="windowRightClick(this); return false" title="' + appTitle + '" id="' + appId + '"></div>';
+	//appsElement.innerHTML = appsElement.innerHTML + '<div class="application" onclick="rcCloseContext()" oncontextmenu="windowRightClick(this); return false" title="' + appTitle + '" id="' + appId + '"></div>';
+	appsElement.innerHTML = appsElement.innerHTML + '<div class="application" onclick="rcCloseContext()" title="' + appTitle + '" id="' + appId + '"></div>';
 	$.get(pathToApp, function(data) {
 		$('#' + appId).html(data);
+		//$('#' + appId).mousedown(windowRightClick);
 		$('#' + appId).bind('dialogclose', function(event) {
 			$('#menu')[0].classList.remove('showOnHover');
 		});
@@ -38,7 +40,10 @@ function loadApp(pathToApp, appId, appTitle, callback){
 	});
 }
 function getAppId(e){
-	return $(e).parents('.ui-dialog').find('.application')[0].id;
+	var targetContext = $(e.currentTarget).parents('.ui-dialog').context;
+	if(targetContext == undefined)
+		targetContext = $(e).parents('.ui-dialog').find('.application')[0];
+	return targetContext.id;
 }
 function maximizeWindow(theWindow){
 	$('#menu')[0].classList.add('showOnHover');

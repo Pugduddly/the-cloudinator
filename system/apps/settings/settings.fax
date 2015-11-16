@@ -68,6 +68,22 @@ $(function(){
 		<tr>
 			<td width="250">
 				Background
+				<!--<div class="chromestyle" id="chromemenu">
+				<ul>
+				<li><a href="#" rel="dropmenu1">Background</a></li>
+				<li><a href="#" rel="dropmenu2">Menu Icon</a></li>
+				<li><a href="#" rel="dropmenu3">Menu Style</a></li>
+				</ul>
+				</div>                       
+				<div id="dropmenu1" class="dropmenudiv">
+				<a href="#" onclick="b.style.background = '#F39943'; setCookie('background', '#F39943');">Blue</a>
+				<a href="#" onclick="b.style.background = '#0097AA'; setCookie('background', '#0097AA');">Orange</a>
+				<a href="#" onclick="b.style.background = 'url(system/backgrounds/Cool-purple-swirl-thingy.jpg) no-repeat center center fixed'; setCookie('background', 'url(system/backgrounds/Cool-purple-swirl-thingy.jpg) no-repeat center center fixed');">Cool Purple Swirly Thing</a>
+				<a href="#" onclick="b.style.background = 'url(system/backgrounds/Cat.png) no-repeat center center fixed'; setCookie('background', 'url(system/backgrounds/Cat.png) no-repeat center center fixed');">Cat</a>
+				<a href="#" onclick="b.style.background = 'url(system/backgrounds/City.jpg) no-repeat center center fixed'; setCookie('background', 'url(system/backgrounds/City.jpg) no-repeat center center fixed');">City</a>
+				<a href="#" onclick="b.style.background = 'url(system/backgrounds/Field.jpg) no-repeat center center fixed'; setCookie('background', 'url(system/backgrounds/Field.jpg) no-repeat center center fixed');">Field</a>
+				<a href="#" onclick="b.style.background = 'url(system/backgrounds/Park.jpg) no-repeat center center fixed'; setCookie('background', 'url(system/backgrounds/Park.jpg) no-repeat center center fixed');">Park</a>
+				</div>-->
 			</td>
 			<td> 
 				<!-- id="background" -->
@@ -108,4 +124,7 @@ $(function(){
 	</table>
 	
 	<h5 id="version"></h5>
+	<!--<script>
+	cssdropdown.startchrome("chromemenu");
+	</script>-->
 </center>

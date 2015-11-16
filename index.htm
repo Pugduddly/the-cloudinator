@@ -11,12 +11,16 @@
 		<script src="js/screenfull-2.0.0.min.js"></script>
 		<script src="js/cookie.js"></script>
 		<script src="js/storage.js"></script>
+		<script src="js/select.js"></script>
+		<script src="system/lib/chromejs/chrome.js"></script>
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/menu.css">
 		<link rel="stylesheet" href="css/apps.css">
 		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.css">
+		<link rel="stylesheet" href="css/custom-button/custom-button.css">
+		<link rel="stylesheet" href="system/lib/chrometheme/chromestyle.css">
 	</head>
-	<body onclick="closeMenu();rcCloseContext()" onmousedown="fMouseDown(this); return false" onload="osLoaded()" id="body" oncontextmenu="desktopRightClick(); return false;">
+	<body id="body" onclick="closeMenu();rcCloseContext()" onmousedown="fMouseDown(this); return false" onload="osLoaded()" oncontextmenu="desktopRightClick(); return false;">
 		<div id="apps"></div>
 		<div id="notifications">
 			<div id="alert" bgcolor="#53ff00" style="display: none" class="application">

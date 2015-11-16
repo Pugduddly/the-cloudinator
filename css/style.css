@@ -4,6 +4,9 @@
     src: url(../fonts/clacon.ttf);
     font-size: 20px;
 }
+select{
+	z-index: 9000;
+}
 .transparent {
 	background-image: url(../images/transparent-bgnd.png);
 	background: url(../images/transparent-bgnd.png);
@@ -25,13 +28,20 @@ button {
 .no-close .ui-dialog-titlebar-close {
 	display: none;
 }
-body {
+#body {
 	background-image: url(../system/backgrounds/Cool-purple-swirl-thingy.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
 	background-color: #0097AA;
 	overflow: hidden;
-	font-size: 62.5%;
+	/*font-size: 62.5%;*/
 	margin: 0;
+	height: 100%;
+}
+body {
+	height: 100%;
+	margin: 0;
+	overflow: hidden;
+	font-size: 62.5%;
 }
 .ContextMenu {
 	position: absolute;

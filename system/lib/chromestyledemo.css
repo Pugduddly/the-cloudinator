@@ -1,0 +1,80 @@
+.chromestyle-red ul{
+background: url(chrometheme/chromebg4.gif) center center repeat-x; /*THEME CHANGE HERE*/
+text-align: left; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle-red ul li a{
+border-right: 1px solid #E8BEBE; /*THEME CHANGE HERE*/
+}
+
+.chromestyle-red ul li a:hover, .chromestyle-red ul li a.selected{
+background: url(chrometheme/chromebg4-over.gif) center center repeat-x; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-red{
+border: 1px solid #E8BEBE; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-red a{
+border: 1px solid #E8BEBE; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-red a:hover{ /*THEME CHANGE HERE*/
+background-color: #FFECEC;
+}
+
+/* DIVIDER */
+
+.chromestyle-green ul{
+background: url(chrometheme/chromebg3.gif) center center repeat-x; /*THEME CHANGE HERE*/
+text-align: right; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle-green ul li a{
+border-right: 1px solid #ADED7C; /*THEME CHANGE HERE*/
+}
+
+.chromestyle-green ul li a:hover, .chromestyle-green ul li a.selected{
+background: url(chrometheme/chromebg3-over.gif) center center repeat-x; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-green{
+border: 1px solid #ADED7C; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-green a{
+border: 1px solid #ADED7C; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-green a:hover{ /*THEME CHANGE HERE*/
+background-color: #EAFADC;
+}
+
+
+
+/* DIVIDER */
+
+.chromestyle-blue ul{
+background: url(chrometheme/chromebg2.gif) center center repeat-x; /*THEME CHANGE HERE*/
+text-align: center; /*set value to "left", "center", or "right"*/
+}
+
+.chromestyle-blue ul li a{
+border-right: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+}
+
+.chromestyle-blue ul li a:hover, .chromestyle-blue ul li a.selected{
+background: url(chrometheme/chromebg2-over.gif) center center repeat-x; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-blue{
+border: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-bluea{
+border-bottom: 1px solid #B5E2FE; /*THEME CHANGE HERE*/
+}
+
+.dropmenudiv-blue a:hover{ /*THEME CHANGE HERE*/
+background-color: #EBF7FF;
+}

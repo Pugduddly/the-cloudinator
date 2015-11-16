@@ -1,15 +1,28 @@
 <script>
 var programsRun = 0;
+var runHistory = [];
 function runTheProgram(){
 	loadApp(document.getElementById('programToRun').value, 'runProgram' + programsRun, document.getElementById('programToRun').value);
+	runHistory.push(document.getElementById('programToRun').value);
+	doAddItem('runHistorySelect', document.getElementById('programToRun').value);
 	document.getElementById('programToRun').value = '';
 	openApp('runProgram' + programsRun);
 	programsRun = programsRun + 1;
 	closeApp('run');
 }
+function doAddItem(selectId, value){
+	var x = document.getElementById(selectId);
+	var option = document.createElement('option');
+	option.text = value;
+	x.add(option);
+}
+$('#runHistorySelect').change(function(){
+	document.getElementById('programToRun').value = document.getElementById('runHistorySelect').options[document.getElementById('runHistorySelect').selectedIndex].innerHTML;
+});
 $('#runButton').button();
 </script>
 <center>
 	<h2>Run</h2>
-	<input type="text" id="programToRun"/><button onclick="runTheProgram()" id="runButton">Run</button>
+	<input type="text" id="programToRun"/><button onclick="runTheProgram()" id="runButton">Run</button><br><br>
+	<select id="runHistorySelect"></select>
 </center>
