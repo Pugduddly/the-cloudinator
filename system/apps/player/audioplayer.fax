@@ -1,7 +1,9 @@
 <div id="title_settings" class="title">System Settings</div>
 <script>
 $(function(){
-	$('#music-to-play').change(function(){
+    $('#music-to-play').selectmenu();
+    $('#loadMusic').button();
+	$('#loadMusic').click(function(){
 		//audioPlayer.pause();
 		var song = document.getElementById('music-to-play');
 		var audio = document.getElementById('the-music');
@@ -22,7 +24,7 @@ $(function(){
 				Song to play
 			</td>
 			<td> 
-				<select name="Choose a song to play" id="music-to-play">
+				<select name="Choose a song to play" id="music-to-play" style="height: 26px; width: 205px">
 					<option value="Evan Carlson - Bounce.mp3">Bounce by Evan Carlson</option>
 					<option value="Evan Carlson - Wiggle.mp3">Wiggle by Evan Carlson</option>
 					<option value="Evan Carlson - Up.mp3">Up by Evan Carlson</option>
@@ -30,6 +32,11 @@ $(function(){
 				</select>
 			</td>
 		</tr>
+        <tr>
+            <td>
+                <button id="loadMusic">Load Music</button>
+            </td>
+        </tr>
 		<tr>
 			<audio id="the-music" controls>
 				<source id="source" src="system/media/Evan Carlson - Bounce.mp3" type="audio/mp3"></source>

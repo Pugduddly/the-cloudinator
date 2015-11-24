@@ -1,0 +1,24 @@
+{
+  "name": "TheCloudinator",
+  "version": "0.1.21",
+  "description": "A cloud-based operating system",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://humphrey14@bitbucket.org/humphrey14/the-cloudinator.git"
+  },
+  "keywords": [
+    "Electron",
+    "Cloud",
+    "OS"
+  ],
+  "author": "humphrey14",
+  "license": "GPL",
+  "homepage": "https://bitbucket.org/humphrey14/the-cloudinator",
+  "devDependencies": {
+    "electron-prebuilt": "^0.34.0"
+  }
+}

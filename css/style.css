@@ -4,8 +4,12 @@
     src: url(../fonts/clacon.ttf);
     font-size: 20px;
 }
-select{
-	z-index: 9000;
+.quickspacer {
+    width: 12px;
+    height: 12px;
+}
+.ui-front{
+	z-index: 98 !important;
 }
 .transparent {
 	background-image: url(../images/transparent-bgnd.png);
@@ -28,6 +32,9 @@ button {
 .no-close .ui-dialog-titlebar-close {
 	display: none;
 }
+.ui-selectmenu-menu {
+    z-index: 1000000 !important;
+}
 #body {
 	background-image: url(../system/backgrounds/Cool-purple-swirl-thingy.jpg) no-repeat center center fixed;
 	-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;
@@ -41,7 +48,7 @@ body {
 	height: 100%;
 	margin: 0;
 	overflow: hidden;
-	font-size: 62.5%;
+    font: 62.5% "Trebuchet MS", sans-serif;
 }
 .ContextMenu {
 	position: absolute;

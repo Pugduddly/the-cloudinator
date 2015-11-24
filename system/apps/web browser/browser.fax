@@ -7,7 +7,7 @@ $('#imageButton').button();
 var widthOffset = 30;
 var heightOffset = 80;
 window.iFrameChanges = -1; //will get incremented to 0 on first page load
-$('#webBrowser').bind('dialogresize', function(event, ui) {
+$('#webBrowser').on('dialogresize', function(event, ui) {
       document.getElementById('webPage').style.width = ui.size.width - widthOffset;
       document.getElementById('webPage').style.height = ui.size.height - heightOffset;
 });

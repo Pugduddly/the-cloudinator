@@ -14,6 +14,10 @@
  * 12. closeApp: close the app specified.
  * 13. deleteApp: kill the app specified and then wipe it out (delete all it's contents, useful for malware protection).
  */
+
+var aWindowIsMaximized = false;
+var howManyWindowsMaximized = 0;
+
 function dalert(text){
 	//$('#alert_text')[0].innerHTML = text;
 	document.getElementById('alert_text').innerHTML = text;
@@ -46,12 +50,19 @@ function getAppId(e){
 	return targetContext.id;
 }
 function maximizeWindow(theWindow){
-	$('#menu')[0].classList.add('showOnHover');
+	howManyWindowsMaximized++;
+	aWindowIsMaximized = true;
 	$(theWindow).dialog('option', {width: document.body.clientWidth, height: document.body.clientHeight});
+	$(theWindow).offset($('#icon2').offset());
+	$(theWindow).trigger('dialogresize');
 }
 function restoreWindow(theWindow){
-	$('#menu')[0].classList.remove('showOnHover');
+	howManyWindowsMaximized--;
+	if (howManyWindowsMaximized === 0) {
+		aWindowIsMaximized = false;
+	}
 	$(theWindow).dialog('option', {width: 400, height: 400});
+	$(theWindow).trigger('dialogresize');
 }
 function setTitle(appId, appTitle){
 	$('#' + appId).dialog('option', 'title', appTitle);

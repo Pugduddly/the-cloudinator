@@ -1,8 +1,6 @@
 // Custom drop-down menus for The Cloudinator
 
-// To-Do: make change event fire
-
-function selectMenu(e){
+function selectMenu(e){ // called when select is clicked
 	e.selectedIndex++;
 	if(e.selectedIndex >= e.options.length){
 		e.selectedIndex = 0;
@@ -10,5 +8,5 @@ function selectMenu(e){
 	if(e.selectedIndex == -1){
 		e.selectedIndex++;
 	}
-	$(e).trigger("change");
+	$(e).trigger('change');
 }

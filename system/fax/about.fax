@@ -10,7 +10,12 @@ $(function(){
 	<br>
 	<h1><b>About The Cloudinator</b></h1>
 	
-	<h3>The Cloudinator version <span id="aboutVersion"></span>, CloudScape UI version <span id="aboutVersion2"></span></h3>
+	<h3>The Cloudinator version <span id="aboutVersion"></span>, CloudScape UI version <span id="aboutVersion2"></span><span id="additionalVersions"></span></h3>
+    <script>
+        if (process.versions.node || process.versions.chrome || process.versions.electron) {
+            document.getElementById('additionalVersions').innerHTML = ', Node.js version ' + process.versions.node + ', Chromium version ' + process.versions.chrome + ', Electron version ' + process.versions.electron
+        }
+    </script>
 	<h3>The Cloudinator is developed and maintaned by Evan Carlson.</h3>
 	<h3>The Cloudinator uses <a data-location="http://jquery.com/">JQuery</a>, <a data-location="http://jqueryui.com/">JQuery UI</a>, and many other things to make it work.</h3>
 </center>

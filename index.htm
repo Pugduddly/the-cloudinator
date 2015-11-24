@@ -1,74 +1,72 @@
 <html>
-	<head>
-		<title>The Cloudinator: A Cloud Operating System In Your Web Browser!</title>
-		<link rel="shortcut icon" href="images/favicon.png">
-		<script src="js/jquery-1.10.2.js"></script>
-		<script src="js/jquery-ui-1.10.4.custom.js"></script>
-		<script src="js/menu.js"></script>
-		<script src="js/apps.js"></script>
-		<script src="js/main.js"></script>
-		<script src="js/rightclick.js"></script>
-		<script src="js/screenfull-2.0.0.min.js"></script>
-		<script src="js/cookie.js"></script>
-		<script src="js/storage.js"></script>
-		<script src="js/select.js"></script>
-		<script src="system/lib/chromejs/chrome.js"></script>
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/menu.css">
-		<link rel="stylesheet" href="css/apps.css">
-		<link rel="stylesheet" href="css/ui-lightness/jquery-ui-1.10.4.custom.css">
-		<link rel="stylesheet" href="css/custom-button/custom-button.css">
-		<link rel="stylesheet" href="system/lib/chrometheme/chromestyle.css">
-	</head>
-	<body id="body" onclick="closeMenu();rcCloseContext()" onmousedown="fMouseDown(this); return false" onload="osLoaded()" oncontextmenu="desktopRightClick(); return false;">
-		<div id="apps"></div>
-		<div id="notifications">
-			<div id="alert" bgcolor="#53ff00" style="display: none" class="application">
-				<br><br>
-				<div class="ui-widget" id="alert_contents_wrapper">
-					<div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;" id="alert_contents">
-						<p class="application">
-							<span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
-							<strong>Alert: </strong><span id="alert_text"></span>
-						</p>
-					</div>
-				</div>
-			</div><br>
-			<div id="error" bgcolor="#53ff00" style="display: none" class="application">
-				<br><br>
-				<div class="ui-widget" id="error_contents_wrapper">
-					<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;" id="error_contents">
-						<p>
-							<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
-							<strong>Error: </strong><span id="error_text"></span>
-						</p>
-					</div>
-				</div>
-			</div><br>
-		</div>
-		<div id="menu" class="menu transparent animate" style="height: 0px; z-index: 2000">
-			<img src="images/menu.png" id="icon" class="menu animate" onclick="toggleMenu()"/>
-			<button class="menubutton" onclick="openApp('settings')">Settings</button>
-			<button class="menubutton" onclick="openApp('audioPlayer')">Audio Player</button>
-			<button class="menubutton" onclick="openApp('videoPlayer')">Video Player</button>
-			<button class="menubutton" onclick="openApp('webBrowser')">Web Browser</button>
-			<script>
-				$('.menubutton').button();
-			</script>
-			<br>
-		</div>
-		<div id="quickbar" class="menu transparent animate" style="z-index: 2000">
-			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block"></span>
-			<span id="quicklaunch">
-				<img style="left: 12px;display: inline-block" title="Settings" src="system/apps/settings/settings.png" class="quicklaunch" onclick="openApp('settings')"/>
-				<img style="left: 24px;display: inline-block" title="Audio Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('audioPlayer')"/>
-				<img style="left: 36px;display: inline-block" title="Video Player" src="system/apps/player/player.png" class="quicklaunch" onclick="openApp('videoPlayer')"/>
-				<img style="left: 48px;display: inline-block" title="Run Program" src="images/run.png" class="quicklaunch" onclick="openDialog('run')"/>
-				<img style="left: 60px;display: inline-block" title="Web Browser" src="system/apps/web browser/browser.png" class="quicklaunch" onclick="openApp('webBrowser')"/>
-			</span>
-			<span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block;position: fixed;right: 0px;"></span>
-			<span id="buttons"></span>
-		</div>
-		<div id="lContextMenu" class="ContextMenu" onselectstart="return false;" style="left: 0px; top: 0px; visibility: hidden;">Uh oh! Something went wrong!<br>You should <b>not</b> be seeing this!</div>
-	</body>
+    <head>
+        <title>The Cloudinator</title>
+        <link rel="shortcut icon" href="images/favicon.png">
+        <script src="js/jquery-2.1.4.js"></script>
+        <script>
+            if (window.$ === undefined) window.$ = window.jQuery = require('./js/jquery-2.1.4.js');
+            if (window.screenfull === undefined) window.screenfull = null;
+            if (window.process === undefined) window.process = {versions: {node: null, chrome: null, electron: null}}
+        </script>
+        <script src="system/lib/jquery_ui/jquery-ui.min.js"></script>
+        <script src="js/menu.js"></script>
+        <script src="js/apps.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/rightclick.js"></script>
+        <script src="js/screenfull-2.0.0.min.js"></script>
+        <script src="js/cookie.js"></script>
+        <script src="js/storage.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/menu.css">
+        <link rel="stylesheet" href="css/apps.css">
+        <link href="system/lib/jquery_ui/jquery-ui.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/custom-button/custom-button.css">
+    </head>
+    <body id="body" onclick="closeMenu();rcCloseContext()" onmousedown="fMouseDown(this); return false" onload="osLoaded()" oncontextmenu="desktopRightClick(); return false;">
+        <div id="apps"></div>
+        <div id="notifications">
+            <div id="alert" bgcolor="#53ff00" style="display: none" class="application">
+                <br><br>
+                <div class="ui-widget" id="alert_contents_wrapper">
+                    <div class="ui-state-highlight ui-corner-all" style="padding: 0 .7em;" id="alert_contents">
+                        <p class="application">
+                            <span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+                            <strong>Alert: </strong><span id="alert_text"></span>
+                        </p>
+                    </div>
+                </div>
+            </div><br>
+            <div id="error" bgcolor="#53ff00" style="display: none" class="application">
+                <br><br>
+                <div class="ui-widget" id="error_contents_wrapper">
+                    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;" id="error_contents">
+                        <p>
+                            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                            <strong>Error: </strong><span id="error_text"></span>
+                        </p>
+                    </div>
+                </div>
+            </div><br>
+        </div>
+        <img src="images/menu.png" id="icon2" class="menu animate" onclick="toggleMenu()"/>
+        <div id="menu" class="menu transparent animate" style="height: 0px; z-index: 2000">
+            <img src="images/menu.png" id="icon" class="menu animate" onclick="toggleMenu()"/>
+            <button class="menubutton" onclick="openApp('settings')">Settings</button>
+            <button class="menubutton" onclick="openApp('audioPlayer')">Audio Player</button>
+            <button class="menubutton" onclick="openApp('videoPlayer')">Video Player</button>
+            <button class="menubutton" onclick="openApp('webBrowser')">Web Browser</button>
+            <script>
+                $('.menubutton').button();
+            </script>
+            <br>
+        </div>
+        <div id="quickbar" class="menu transparent animate" style="z-index: 2000">
+            <span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block"></span>
+            <span id="quicklaunch">
+            </span>
+            <span class="ui-icon ui-icon-grip-dotted-vertical" style="display: inline-block;position: fixed;right: 0px;"></span>
+            <span id="buttons"></span>
+        </div>
+        <div id="lContextMenu" class="ContextMenu" onselectstart="return false;" style="left: 0px; top: 0px; visibility: hidden;">Uh oh! Something went wrong!<br>You should <b>not</b> be seeing this!</div>
+    </body>
 </html>
