@@ -1,6 +1,8 @@
 ![the-cloudinator-banner.png](https://bitbucket.org/repo/E9nLok/images/1440181341-the-cloudinator-banner.png)
 # The Cloudinator #
 
+Note: Development of The Cloudinator has been stopped. Sorry.
+
 ## What Is The Cloudinator? ##
 The Cloudinator is an open-source cloud-based computer operating system that runs in your web browser.
 
