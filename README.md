@@ -3,6 +3,8 @@
 
 Note: Development of The Cloudinator has been stopped. Sorry.
 
+For another web-based OS you can try out my project [w2k.js](https://w2k-js.glitch.me/).
+
 ## What Is The Cloudinator? ##
 The Cloudinator is an open-source cloud-based computer operating system that runs in your web browser.
 
